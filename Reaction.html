@@ -1,0 +1,71 @@
+
+<html>
+
+    <head>
+
+        <title>Javascript</title>
+<link rel="stylesheet" type="text/css" href="reaction.css" />
+
+
+    </head>
+
+    <body>
+
+<h1>Test Your Reactions!</h1>
+<p>Click on boxes and circles as quickly as you can!</p>
+<h3>Your time:<span id="timeTaken"></span></h3>
+<div id="game">
+<div id="shape"></div>
+
+
+</div>
+
+
+</div>
+
+  </body>
+    <script type="text/javascript">
+var start=new Date().getTime();
+function getRandomColor(){
+  var letters='0123456789ABCDEF'.split('');
+  var color="#";
+  for (var i=0;i<6;i++){
+    color+=letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+
+}
+    function makeShapeAppear(){
+      var widthHeight=Math.random()*100+20;
+      var colorr=getRandomColor();
+      document.getElementById('shape').style.width=widthHeight+"px";
+      document.getElementById('shape').style.height=widthHeight+"px";
+      document.getElementById('shape').style.backgroundColor=colorr;
+      document.getElementById('shape').style.top=Math.random()*85+"%";
+      document.getElementById('shape').style.left=Math.random()*85+"%";
+      document.getElementById('shape').style.right=Math.random()*85+"%";
+      document.getElementById('shape').style.bottom=Math.random()*85+"%";
+      document.getElementById('shape').style.borderRadius=Math.random()*100+"%";
+      document.getElementById('shape').style.display="block";
+      start=new Date().getTime();
+    }
+
+function appearAfterDelay(){
+  setTimeout(makeShapeAppear,Math.random()*2000);
+}
+
+appearAfterDelay();
+
+    document.getElementById("shape").onclick=function(){
+      var end = new Date().getTime();
+      var timeTaken=(end-start)/1000;
+      document.getElementById('shape').style.display="none";
+      document.getElementById('timeTaken').innerHTML=timeTaken+"s";
+      appearAfterDelay();
+    }
+  /*document.getElementById('game').onclick=function(){
+
+    document.getElementById('game').innerHTML="<div class='quad'></div>";
+}*/
+    </script>
+</html>

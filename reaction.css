@@ -1,0 +1,19 @@
+#game{
+  height:500;
+  width:500;
+  background:lightgreen;
+}
+
+#shape{
+  width:75px;
+  height:75px;
+  background-color: red;
+  display:none;
+  position:relative;;
+
+}
+#wrapper
+{
+  position:absolute;
+  background: blue;
+}
